@@ -1,16 +1,8 @@
-mod greeting {
-	pub fn hello() {
-		println!("Hello, world!");
-	}
-
-	pub fn hello_alt() {
-		println!("What's up?");
-	}
-}
-
-use greeting::{hello, hello_alt};
+mod greeting;
+use greeting::{hello as hi, hello_alt, german_hello};
 
 fn main() {
-	hello();
+	hi();
 	hello_alt();
+	german_hello();
 }
