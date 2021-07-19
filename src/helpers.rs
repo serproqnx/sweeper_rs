@@ -14,6 +14,6 @@ pub fn get_path_usr_desktop() -> String {
   } else {
     println!("Some shit happened");
   }
-
+	println!("User desktop path: {:?}", &tempdir);
   return tempdir;
 }
