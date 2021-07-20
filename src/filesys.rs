@@ -1,23 +1,16 @@
-use std::{fs, io};
+mod get_list_folder_objects;
+mod get_path_usr_desktop;
 
-//super mod helpers;
-// mod helpers;
-use crate::helpers::get_path_usr_desktop;
+use std::fs;
 
-pub fn get_ls_usr_desktop() -> io::Result<()> {
-	let d_path = get_path_usr_desktop(); 
-	// println!("{:?}", &d_path);
-	let mut entries = fs::read_dir(d_path)?
-					.map(|res| res.map(|e| e.path()))
-					.collect::<Result<Vec<_>, io::Error>>()?;
+// use get_path_usr_desktop::get_path;
+use get_list_folder_objects::get_ls_usr_desktop;
 
-			// The order in which `read_dir` returns entries is not guaranteed. If reproducible
-			// ordering is required the entries should be explicitly sorted.
-			// println!("{:?}", entries);
-			for value in entries {
-				println!("{:?}", value);
-			}
-			// The entries have now been sorted by their path.
+pub fn get_list_of_data() {
+	let entries = get_ls_usr_desktop();
 
-			Ok(())
+	for value in entries {
+		let attr = fs::metadata(value);
+		println!("{:?}", attr.created().unwrap());
+	}
 }
