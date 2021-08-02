@@ -10,7 +10,7 @@ pub fn delete_logs() -> std::io::Result<()> {
     temp_path: "L:\\temp"
   };
 
-	fs::remove_file("L:\\temp\\TEST.txt")?;
+	fs::remove_file("C:\\temp\\TEST.txt")?;
 	Ok(())
 
   // println!("{}", &path.temp_path);
