@@ -1,6 +1,7 @@
 mod clean;
 mod messenger;
 mod paths;
+mod filesys;
 
 use clean::delete_logs;
 use messenger::get_msg;
