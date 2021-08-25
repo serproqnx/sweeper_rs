@@ -1,13 +1,9 @@
-// mod helpers;
-// mod filesys;
 mod clean;
 mod messenger;
+mod paths;
 
 use clean::delete_logs;
 use messenger::get_msg;
-// use crate::messages::get_msg;
-// use helpers::module_loaded as helpers_module_loaded;
-// use filesys::get_list_of_data;
 
 fn main() {
 	//initialization
@@ -20,7 +16,6 @@ fn main() {
 	match res {
 		Ok(_v) => msg.logs_deleted(),
 		Err(e) => msg.error(e),
-		// Err(e) => println!("{}{}", msg.error, e),
 	}
 
 	//deactivation

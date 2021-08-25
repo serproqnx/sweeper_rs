@@ -1,18 +1,10 @@
 use std::fs;
+use crate::paths::get_paths;
 // use crate::messages::get_msg;
 
 pub fn delete_logs() -> std::io::Result<()> {
-  struct Paths {
-    temp_path: &'static str,
-  }
-
-  let path = Paths {
-    temp_path: "C:\\temp\\TEST.txt",
-  };
-
-  // let dir_path_buf = fs::read_dir("C:\\temp\\");
-  // let is_empty = &dir_path_buf.read_dir()?.next().is_none();
-
+	
+	let path = get_paths();
   
   fs::remove_file(&path.temp_path)?;
 
@@ -21,5 +13,3 @@ pub fn delete_logs() -> std::io::Result<()> {
   // println!("{}", &path.temp_path);
   // println!("delete logs module was connected");
 }
-
-
