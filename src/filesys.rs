@@ -1,5 +1,5 @@
 mod get_list_folder_objects;
-mod get_path_usr_desktop;
+pub mod get_path_usr_desktop;
 
 use std::fs;
 
