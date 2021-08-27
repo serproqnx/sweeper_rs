@@ -7,7 +7,7 @@ pub struct Paths {
 impl Paths {
 	pub fn load_usr_paths(&self) {
 		let a = get_usr_paths();
-		println!("{:?}", a);
+		//println!("{:?}", a);
 	}
 }
 
@@ -20,4 +20,5 @@ pub fn get_paths() -> Paths {
 	&path.load_usr_paths();
 
 	path
+
 }
