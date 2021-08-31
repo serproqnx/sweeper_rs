@@ -9,7 +9,6 @@ use messenger::get_msg;
 fn main() {
 	//initialization
 	let msg = get_msg();
-	// msg.test_impl();
 	msg.started();
 
 	//temp deleting logs

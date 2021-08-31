@@ -19,20 +19,7 @@ pub fn get_path() -> String {
 }
 
 pub fn get_usr_paths() -> Option<UserDirs> {
-// pub fn get_usr_paths() {
-  // let mut tempdir: UserDirs;
 	let tempdir = UserDirs::new();
-
-  // if let Some(user_dirs) = UserDirs::new() {
-	// 	let test = user_dirs.des();
-		
-	// 	match test {
-	// 		Some(v) => tempdir = user_dirs,
-	// 		None() => println!("xz!"),
-	// 	}
-  // } else {
-  //   println!("Some shit happened");
-  // }
-	// println!("User desktop path: {:?}", &tempdir);
   tempdir
 }
+
