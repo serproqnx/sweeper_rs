@@ -1,7 +1,7 @@
 use std::fs;
 use crate::paths::get_paths;
 use crate::messenger::get_msg;
-use std::path::Path;
+// use std::path::Path;
 
 pub struct Deleter {
 	pub custom_logs: &'static str,
@@ -13,7 +13,6 @@ impl Deleter {
 		let path = get_paths();
 		msg.try_delete_logs();
 		fs::remove_file(&path.temp_path)?;
-
 		Ok(())
 	}
 }
