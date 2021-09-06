@@ -1,4 +1,4 @@
-// use crate::filesys::get_path_usr_desktop::get_usr_paths;
+use crate::filesys::get_path_usr_desktop::get_usr_paths;
 
 pub struct Paths {
 	pub temp_path: &'static str,
@@ -6,8 +6,12 @@ pub struct Paths {
 
 impl Paths {
 	pub fn load_usr_paths(&self) {
-		// let a = get_usr_paths();
-		//println!("{:?}", a);
+		let paths = get_usr_paths();
+		// println!("{:?}", paths);
+		match paths {
+			Some(p) => println!("{:?}", p),
+			None => println!("none"),
+		}
 	}
 }
 

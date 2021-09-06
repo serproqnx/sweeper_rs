@@ -4,7 +4,7 @@ pub fn get_msg() -> Messages {
   let msg = Messages {
 		program_started: "🚀 Sweeper started  ===============",
     logs_were_deleted: " ˫✔️  Logs were deleted",
-    program_stopped: "👍 Sweeper stopped  ===============",
+    program_stopped: "🛑 Sweeper stopped  ===============",
     test_impl: "",
 		try_delete_logs: "🧹 Trying to delete logs...",
     error: " ˫💥 Error:",
@@ -29,7 +29,7 @@ impl Messages {
 	pub fn started(&self)	{	p(self.program_started) }
 	pub fn stopped(&self)	{	p(self.program_stopped) }
 	pub fn logs_deleted(&self) { p(self.logs_were_deleted) }
-	pub fn test_impl(&self) {	p(self.test_impl) }
+	// pub fn test_impl(&self) {	p(self.test_impl) }
 	pub fn try_delete_logs(&self) {	p(self.try_delete_logs)	}
 	pub fn error(&self, err_txt: std::io::Error) 
 		{ p_err(self.error, err_txt) }
