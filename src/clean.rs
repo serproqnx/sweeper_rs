@@ -1,4 +1,4 @@
-use std::fs;
+use std::{fs, io};
 use crate::paths::get_paths;
 use crate::messenger::get_msg;
 // use std::path::Path;
@@ -22,6 +22,16 @@ pub fn delete_logs() -> std::io::Result<()> {
 	let path = get_paths();
 
 	msg.try_delete_logs();
+
+	// println!("{:?}", &path.user_paths.download_dir());
+	let entries = fs::read_dir(&path.user_paths.download_dir().unwrap())?
+        .map(|res| res.map(|e| e.path()))
+        .collect::<Result<Vec<_>, io::Error>>()?;
+
+	for item in entries {
+		println!("{:?}", item);
+	}
+	
 
   fs::remove_file(&path.temp_path)?;
 

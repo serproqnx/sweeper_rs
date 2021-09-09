@@ -18,8 +18,9 @@ use directories::UserDirs;
 //   return tempdir;
 // }
 
-pub fn get_usr_paths() -> Option<UserDirs> {
-	let tempdir = UserDirs::new();
-  tempdir
+pub fn get_usr_paths() -> UserDirs {
+	let tempdir = UserDirs::new().unwrap();
+	
+	tempdir
 }
 
