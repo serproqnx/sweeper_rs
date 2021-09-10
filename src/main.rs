@@ -3,7 +3,7 @@ mod messenger;
 mod paths;
 mod filesys;
 
-use clean::delete_logs;
+use clean::delete_usr_downloads;
 use messenger::get_msg;
 
 fn main() {
@@ -12,7 +12,7 @@ fn main() {
 	msg.started();
 
 	//temp deleting logs
-	let res = delete_logs();
+	let res = delete_usr_downloads();
 	match res {
 		Ok(_v) => msg.logs_deleted(),
 		Err(e) => msg.error(e),

@@ -17,19 +17,27 @@ use crate::messenger::get_msg;
 // 	// }
 // }
 
-pub fn delete_logs() -> std::io::Result<()> {
+pub fn delete_usr_downloads() -> std::io::Result<()> {
 	let msg = get_msg();
 	let path = get_paths();
 
 	msg.try_delete_logs();
 
-	// println!("{:?}", &path.user_paths.download_dir());
-	let entries = fs::read_dir(&path.user_paths.download_dir().unwrap())?
+	let path_usr_dl = &path
+		.user_paths
+		.download_dir()
+		.unwrap();
+
+	let entries = fs::read_dir(path_usr_dl)?
         .map(|res| res.map(|e| e.path()))
         .collect::<Result<Vec<_>, io::Error>>()?;
 
 	for item in entries {
-		println!("{:?}", item);
+		let is_dir = fs::metadata(&item).unwrap().is_dir();
+		if is_dir == true {
+			fs::remove_dir_all(&item);
+		}
+		// println!("is_dir: {:?}", meta.unwrap().is_dir());
 	}
 	
 
